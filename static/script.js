@@ -1,8 +1,21 @@
-function jogar(escolha){
+async function jogar(escolha) {
 
-    const resultado = document.getElementById("resultado");
+    const resposta = await fetch("/jogar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            jogada: escolha
+        })
+    });
 
-    resultado.innerHTML =
-        "Você escolheu: <strong>" + escolha + "</strong>";
+    const dados = await resposta.json();
 
+    document.getElementById("resultado").innerHTML =
+        `
+        Você escolheu: <strong>${escolha}</strong><br><br>
+        Computador escolheu: <strong>${dados.computador}</strong><br><br>
+        <strong>${dados.resultado}</strong>
+        `;
 }
