@@ -16,18 +16,15 @@
 
         <p>Escolha uma opção:</p>
 
-        <div class="botoes">
-            <button>🪨 Pedra</button>
-            <button>📄 Papel</button>
-            <button>✂️ Tesoura</button>
-        </div>
+     <div class="botoes">
 
-        <h2>Resultado</h2>
+    <button onclick="jogar('Pedra')">🪨 Pedra</button>
 
-        <p id= "resultado">Aguardando jogada...</p>
+    <button onclick="jogar('Papel')">📄 Papel</button>
 
-        
-    </div>
+    <button onclick="jogar('Tesoura')">✂️ Tesoura</button>
+
+</div>
 
 <script src="{{ url_for('static', filename='script.js') }}"></script>
 
